@@ -1,14 +1,14 @@
-script: "bundle exec rspec spec"
-
-language: ruby
-
-rvm:
-  - 1.9.3
-  - 2.0.0
-  - 2.1.0
-  - 2.1.1
-  - 2.1.2
-  - jruby-19mode
-
+language: minimal
+sudo: required
 services:
-  - mongodb
+  - docker
+script: make
+deploy:
+  provider: script
+  script: make publish
+  on:
+    branch: master
+    tags: true
+env:
+  global:
+    secure: B8X+4hSAVv1q7p1BVLz87uoaDzbfES15eR2Yhz+wRtM6PwwAq1GhFEqomgXNLaasOIazpD8pGiiIxidrW8yL2uZsz1yGsv1CtoY93kcvPCw8keX45pGBmhaGcK/sx+FZeTmn4dUC63qcWz+ChMlr2z/g8FzEtT8zRzCC2Av5TH+N+NFN7z4GSC3KafT2cZ6Qv9SFebb40SGRIMr4IsHnw/287gf4Viiu2yYwc8NA+a7+3U61SAAXE9gu+kfmVFZeHXs3nIJBvb6BK734YKMq02e1eBMaUdz9QuzAzK2UonEcQc39VxrgQNHaN/028h78ZdHDiK1sDFJPtwMfzY7fjX4NJypHcmZZCxOK/q+GDHHQyR+6hFKdQ/1WwV1rH916lJ196E7zMa7UcUMxylxHsIIWWlElTgKwbojSxkE9RitETHxGhfKC5SFhL5OjGdl/tbTHmvjlSRnD5UKkz5kczp1IhKQlyYouSiyU+aBkxDRkRci2WIjGJtZDq1Jf3GQ+ozkd/7CtvnMHo15UQpqLNycgu6nkClKiUHAQRARH0UnOkQYBC8sHJ+chmdA1QYZNLF9A0oDszQrMbUNZA2+fznRXGhpy4VO3qsNrKHQlBWkegnL8KQSMToNQZtUFK0pAo+b6OIdSXDWxonz384GyeV403+Ai5ZZ3oFLqFOut6Zc=
